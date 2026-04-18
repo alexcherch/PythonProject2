@@ -1,6 +1,6 @@
 import pytest
 
-from src.main import divide, calculate_logarithm, reverse_string
+from src.main import divide, calculate_logarithm, reverse_string, reverse_list
 
 
 def test_divide():
@@ -20,9 +20,18 @@ def test_calc_log():
         calculate_logarithm(8, 0)
 
 
-def test_reverse_string_number(numbers):
-    assert reverse_string("123") == numbers
+@pytest.mark.parametrize('value, expected', [
+    ('123', '321'),
+    ('hello', 'olleh'),
+    ('world', 'dlrow')
+])
+def test_reverse_string(value, expected):
+    assert reverse_string(value) == expected
 
 
-def test_reverse_string_letter(letters):
-    assert reverse_string("hello") == letters
+def test_reverse_list(my_list):
+    assert reverse_list(my_list) == [5, 4, 3, 2, 1]
+
+
+def test_reverse_list_empty():
+    assert reverse_list([]) == []

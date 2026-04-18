@@ -14,3 +14,6 @@ def calculate_logarithm(x, base):
 def reverse_string(my_string):
     return my_string[::-1]
 
+
+def reverse_list(lst):
+    return lst[::-1]
